@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit - Explore Muse</title>
+</head>
+<body>
+    <h3>Edit this listing</h3>
+    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT">
+        <input value="<%= listing.title %>" name="listing[title]">  </input>
+        <br><br>
+        <textarea name="listing[desc]" cols="30" rows="10"><%= listing.desc %> </textarea> 
+        <br><br>
+        <input value="<%= listing.image %>" name="listing[image]" >   </input>
+        <br><br>
+        <input value="<%= listing.price %>" name="listing[price]" >   </input>
+        <br><br>
+        <input value="<%= listing.location %>" name="listing[location]" >   </input>
+        <br><br>
+        <input value="<%= listing.country %>" name="listing[country]" >   </input>
+        <br><br>
+        <button>Edit</button>
+    </form>
+</body>
+</html>
