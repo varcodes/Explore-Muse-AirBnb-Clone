@@ -1,20 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Muse</title>
-</head>
+<% layout("/layouts/boilerplate") %>
 <body>
     <h3>All Listings</h3>
-    <form method="GET" action="/listings/new">
+    <!-- <form method="GET" action="/listings/new">
         <button>Create New Listing</button>
-    </form>
-    <ul>
+    </form> -->
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1" >
         <% for (let listing of allListings) { %>
-            <li><a href="/listings/<%= listing._id %>"> <%= listing.title %> </a> </li>
-        <% } %>
-    </ul>
+            <a href="/listings/<%= listing._id %>" class="card-link">
+            <div class="card col listing-card">
+                <img src="<%= listing.image %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                  <h5 class="card-title"><%= listing.title %></h5>
+                  <p>
+                    <h6 class="card-price"> &#8377; <%= listing.price.toLocaleString("en-IN") %> / night </h6>
+                </p>
+                <p class="card-text"><%= listing.desc %></p>
+                <p class="card-location"><%= listing.location %>, <%= listing.country %></p>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+            </a>
+              <% } %>
+
+    </div>
+   
+      
 </body>
-</html>
+
 
